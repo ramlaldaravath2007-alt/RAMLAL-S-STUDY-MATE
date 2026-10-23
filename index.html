@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyMate | Student Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <h1>StudyMate</h1>
+            <p>Your student planner</p>
+        </div>
+        <span id="todayDate"></span>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <h2>Welcome, Student! 👋</h2>
+            <p>Plan your classes, track assignments, and achieve your goals.</p>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <p>Total Tasks</p>
+                <h2 id="totalTasks">0</h2>
+            </article>
+            <article class="stat-card">
+                <p>Pending Tasks</p>
+                <h2 id="pendingTasks">0</h2>
+            </article>
+            <article class="stat-card">
+                <p>Completed Tasks</p>
+                <h2 id="completedTasks">0</h2>
+            </article>
+        </section>
+
+        <section class="panel">
+            <h2 id="taskFormHeading">Add a Study Task</h2>
+
+            <form id="taskForm">
+                <label for="taskTitle">Task name</label>
+                <input id="taskTitle" type="text"
+                       placeholder="Example: Study JavaScript" required>
+
+                <label for="taskSubject">Subject</label>
+                <input id="taskSubject" type="text"
+                       placeholder="Example: Web Programming" required>
+
+                <label for="taskDeadline">Deadline</label>
+                <input id="taskDeadline" type="date" required>
+
+                <div class="actions">
+                    <button type="submit" id="saveTaskButton">+ Add Task</button>
+                    <button type="button" id="cancelEditButton"
+                            class="secondary" hidden>Cancel Edit</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>My Tasks</h2>
+
+            <label for="taskSearch">Search by task or subject</label>
+            <input id="taskSearch" type="search"
+                   placeholder="Search assignments...">
+
+            <div class="filter-row">
+                <label for="taskFilter">Show:</label>
+                <select id="taskFilter">
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div id="taskList"></div>
+        </section>
+
+        <section class="panel">
+            <h2>Add to Class Timetable</h2>
+
+            <form id="classForm">
+                <label for="classSubject">Subject</label>
+                <input id="classSubject" type="text"
+                       placeholder="Example: Operating Systems" required>
+
+                <label for="classDay">Day</label>
+                <select id="classDay" required>
+                    <option value="">Select a day</option>
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                    <option>Thursday</option>
+                    <option>Friday</option>
+                    <option>Saturday</option>
+                    <option>Sunday</option>
+                </select>
+
+                <label for="classTime">Class time</label>
+                <input id="classTime" type="time" required>
+
+                <label for="classRoom">Room (optional)</label>
+                <input id="classRoom" type="text"
+                       placeholder="Example: Room 204">
+
+                <button type="submit">+ Add Class</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>My Weekly Timetable</h2>
+            <p class="muted">Select a day to view your classes.</p>
+
+            <div id="weekDays" class="week-days"></div>
+            <div id="weeklyTimetable"></div>
+        </section>
+
+        <section class="panel">
+            <h2>All Scheduled Classes</h2>
+            <div id="timetable"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>StudyMate © 2026 | Plan your day, achieve your goals.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
